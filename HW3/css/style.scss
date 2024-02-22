@@ -1,0 +1,1576 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+$colorMainText: #222222;
+$colorPink: #f16d7f;
+$colortWite: #ffffff;
+$colorSubtitle: #9f9f9f;
+$colorFooterCopy: #7a7a7a;
+$colorOption: #fbfbfb;
+$contantWidth: 1140px;
+
+$bgColorMain: #e8e8e8;
+$bgColorSecond: #222224;
+$borderColorSearch: #e6e6e6;
+$colorTextSearch: #a4a4a4;
+$colorAboutText: #898989;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400;
+    font-family: "Lato";
+    font-size: 14px;
+    color: $colorMainText;
+}
+
+// --- общие стили для всей страницы ---
+// отступ для ирифтовых иконок
+.fa-left-padding {
+    padding-left: 8px;
+}
+
+// наведение на кнопку
+.button-hover_pink {
+    transition: background-color 0.5s ease-in-out;
+}
+
+.button-hover_pink:hover {
+    color: $colorPink;
+    background-color: $colortWite;
+    border: 1px solid $colorPink;
+}
+
+.button-hover:hover {
+    background-color: $colorPink;
+    // border: 1px solid $colorPink;
+    color: $colortWite;
+}
+
+.global_pink {
+    color: $colorPink;
+}
+
+.menu__link:hover {
+    color: $colorPink;
+}
+
+.list-style-none__flex {
+    display: flex;
+    list-style: none;
+}
+
+/* Общее центрирование */
+.center {
+    padding-left: calc(50% - $contantWidth / 2);
+    padding-right: calc(50% - $contantWidth / 2);
+}
+
+/* шапка сайта */
+.main-header {
+    background-color: $colortWite;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+
+    border: 1px solid #ececec;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.17);
+
+    &__link {
+        text-decoration: none;
+    }
+
+    // Левая часть, лого, бренд, поиск
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+
+    &__brand {
+        font-size: 27px;
+        line-height: 32px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        color: $colorMainText;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    &__brand_red {
+        color: $colorPink;
+    }
+
+    &__search {
+        display: flex;
+        align-items: center;
+    }
+
+    // общие параметры инпута
+    &__input {
+        height: 38px;
+        box-sizing: border-box;
+        background-color: $colortWite;
+        border: 1px solid $borderColorSearch;
+        padding-left: 16px;
+
+        line-height: 32px;
+        font-weight: 300;
+        letter-spacing: 0.025em;
+        color: $colorTextSearch;
+    }
+
+    // модификатор для строки поиска
+    &__input_search {
+        width: 279px;
+    }
+
+    // модификатор для значка поиска
+    &__input_find {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 38px;
+        padding-left: 0;
+        border-radius: 0px 3px 3px 0px;
+    }
+
+    // Праавый блок, корзина, кнопка аккаунта
+    &__right {
+        display: flex;
+        gap: 26px;
+        align-items: center;
+    }
+
+    &__account {
+        display: block;
+        border: none;
+        box-sizing: border-box;
+
+        width: 130px;
+        height: 38px;
+        background-color: $colorPink;
+        color: $colortWite;
+        font-size: 15px;
+    }
+}
+
+.store:hover path {
+    fill: $colorPink;
+}
+
+// выпадающая кнопка в блоке поиска и кнопка профиля
+.drop {
+    position: relative;
+    padding: 8px 15px 15px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+    &__summary {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    // модификатор стиля кнопки Browse
+    &_browse {
+        background-color: $bgColorMain;
+        background-image: linear-gradient(180deg, #f9f9f9 0%, #f5f5f5 100%);
+        border: 1px solid $borderColorSearch;
+        border-radius: 3px 0px 0px 3px;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 262px;
+        position: absolute;
+        z-index: 1;
+
+        background-color: #ffffff;
+        border: 1px solid $borderColorSearch;
+        border-radius: 5px;
+    }
+
+    &__items_browse {
+        padding: 20px;
+        left: 0;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // модификатор изменения цвета при открытии кнопки Обзор
+    &[open] .drop__summary {
+        color: $colorPink;
+    }
+
+    &[open] {
+        background-color: $bgColorMain;
+    }
+
+    &_account {
+        width: 130px;
+        height: 38px;
+        background-color: $colorPink;
+        color: $colortWite;
+        font-size: 15px;
+    }
+
+    // стили выпадающего меню по кнопке Аккаунт
+    &__items_account {
+        padding: 20px 17px;
+        top: 54px;
+        left: -50%;
+        gap: 0;
+    }
+
+    &__item_buy {
+        display: flex;
+    }
+
+    &__item-data {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 14px;
+    }
+
+    &__item-text {
+        font-size: 12px;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $colorMainText;
+    }
+
+    &__item-star {
+        display: flex;
+    }
+
+    &_star {
+        font-size: 12px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #e4af48;
+    }
+
+    &__item_price {
+        font-weight: 400;
+        color: $colorPink;
+    }
+
+    &__item_close {
+        font-size: 16px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #c0c0c0;
+    }
+
+    &__span {
+        font-size: 10px;
+    }
+
+    &__close {
+        padding-top: 35px;
+        padding-left: 52px;
+    }
+
+    hr {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        background-color: rgba(237, 237, 237, 0.74);
+        height: 1px;
+        border: none;
+    }
+
+    // Итоговая цена в карточке
+    &__total {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    &__total_price {
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $colorMainText;
+    }
+
+    // кнопки в аккаунте
+    &__button-account {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 11px;
+    }
+
+    &__button-account_link {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $colorPink;
+
+        width: 225px;
+        padding: 19px 0;
+        border: 1px solid #f16d7f;
+        box-sizing: border-box;
+    }
+
+    &__button-account_gray {
+        border: 1px solid #eaeaea;
+        color: $colorTextSearch;
+    }
+
+    &__button-account_hover:hover {
+        color: $colorTextSearch;
+    }
+
+    // модификатор изменения цвета при открытии кнопки Аккаунт
+    // &[open] .drop__summary_account {
+    //     background-color: $colorOption;
+    // }
+}
+
+// Главная навигация сайта
+.navigation {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.menu__list {
+    position: relative;
+}
+
+// Выпадающий список
+.dropdown {
+    display: none;
+    column-gap: 46px;
+    row-gap: 14px;
+    grid-template-rows: 155px 155px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    padding: 20px;
+    background-color: $colortWite;
+    border-radius: 5px;
+    position: absolute;
+
+    border: 1px solid $colorTextSearch;
+    top: 42px;
+    left: -87px;
+
+    z-index: 1;
+
+    &_home {
+        grid-template-columns: none;
+        grid-template-rows: none;
+    }
+}
+
+// псевдоэлемент для создания стрелки указателя
+.dropdown::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: absolute;
+    background-color: $colortWite;
+    border-left: 1px solid $colorTextSearch;
+    border-top: 1px solid $colorTextSearch;
+    top: -9px;
+    left: 98px;
+    transform: rotate(45deg);
+}
+
+// главное меню
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+
+    &__list {
+        line-height: 26px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $colorMainText;
+        list-style: none;
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+
+    &__list_active {
+        border-bottom: 3px solid $colorPink;
+    }
+
+    // активация выпадающего меню при наведении
+    &__list:hover .dropdown {
+        display: grid;
+    }
+
+    // класс всех ссылок по умолчанию
+    &__link {
+        text-decoration: none;
+        color: $colorMainText;
+    }
+
+    // стиль ссылок в выпадающем меню
+    &__link_drop {
+        line-height: 28px;
+        letter-spacing: 0.025em;
+        color: #646464;
+        text-transform: capitalize;
+    }
+
+    // заголовок в блоках товаров
+    &__title {
+        border-bottom: 1px solid $bgColorMain;
+        margin-bottom: 8px;
+
+        line-height: 32px;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        color: #232323;
+    }
+
+    // блок внутри меню
+    &__item {
+        display: flex;
+        flex-direction: column;
+        width: 235px;
+    }
+
+    &__item_bg {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    &__item_img {
+        width: 100%;
+    }
+
+    &__item_sale {
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        color: #ffffff;
+        width: 74px;
+        position: absolute;
+        padding-bottom: 12px;
+        margin-right: 10px;
+    }
+
+    // позиционирование текста в выпадающем меню
+    &__item_mv-dwn {
+        grid-column: 2 / 3;
+    }
+
+    &__item_mv-up {
+        grid-column: 3/4;
+        grid-row: 1/2;
+    }
+}
+
+// разворот последнего меню
+.last:hover .dropdown {
+    right: 0;
+    left: auto;
+}
+
+.last:hover .dropdown::before {
+    right: 34px;
+    left: auto;
+}
+
+// настройка позиционирования accesories
+.acc:hover .dropdown {
+    left: -450px;
+    right: auto;
+}
+
+.acc:hover .dropdown::before {
+    right: 340px;
+    left: auto;
+}
+
+.cntr:hover .dropdown {
+    left: -450px;
+    right: auto;
+}
+
+.cntr:hover .dropdown::before {
+    right: 365px;
+    left: auto;
+}
+
+// Блок хлебные крошки
+.breadcrumbs {
+    height: 148px;
+    background-color: #f8f3f4;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+        font-size: 24px;
+        line-height: 20px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: $colorPink;
+    }
+
+    &__link {
+        line-height: 20px;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: #636363;
+    }
+
+    &__item:not(:last-child):after {
+        content: "/";
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #636363;
+    }
+}
+
+// Блок checkout
+.checkout {
+    &__conteiner {
+        display: flex;
+        padding-left: 35px;
+        padding-top: 40px;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+    }
+
+    &__block-head {
+        font-size: 13px;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__block-text {
+        padding-top: 15px;
+        font-size: 13px;
+        line-height: 20px;
+        color: #b3b2b2;
+    }
+}
+
+// Страница Корзина cart
+.cart {
+    padding-top: 90px;
+    padding-bottom: 80px;
+
+    &__manage {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 44px;
+        padding-bottom: 62px;
+    }
+
+    &__link {
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #4a4a4a;
+
+        padding: 18px 38px;
+        background-color: #ffffff;
+        border: 1px solid #eaeaea;
+    }
+
+    &__link:hover {
+        border: 1px solid $colorPink;
+        color: $colorPink;
+    }
+
+    &__unit {
+        padding-top: 22px;
+        align-items: center;
+    }
+
+    &__unit-about {
+        display: flex;
+        gap: 22px;
+        width: 300px;
+        height: 115px;
+    }
+
+    &__unit-about img {
+        height: 100%;
+    }
+
+    &__unit-about:hover {
+        box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    &__unit-title_center {
+        justify-self: center;
+    }
+
+    &__quantity {
+        padding: 10px 24px;
+        border: 1px solid #eaeaea;
+    }
+
+    &__unit-head {
+        padding-top: 13px;
+        padding-bottom: 28px;
+
+        font-size: 13px;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    &__unit-text {
+        font-size: 13px;
+        line-height: 20px;
+        color: #575757;
+        font-weight: 700;
+    }
+
+    &__unit-text:last-of-type {
+        padding-top: 5px;
+    }
+
+    &__unit-span {
+        font-weight: 300;
+        color: #6f6e6e;
+        padding-left: 5px;
+    }
+
+    // формирование структуры таблицы, заголовки
+    .shopping-list {
+        display: grid;
+        grid-template-columns: [start] 500px [line2] 1fr [line3] 1fr [line4] 1fr [line5] 1fr [line6] 1fr;
+
+        border-bottom: 1px solid #e2e2e2;
+        padding-bottom: 20px;
+
+        // заголовок таблицы в корзине
+        &__title {
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.015em;
+            color: $colorMainText;
+        }
+    }
+
+    .shiping-info {
+        display: grid;
+        grid-template-columns: 355px 355px 360px;
+        gap: 35px;
+
+        &__adress {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        &__discount {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        &__total {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 360px;
+            height: 214px;
+            background-color: #f5f3f3;
+            padding: 42px;
+        }
+
+        &__title {
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: $colorMainText;
+        }
+
+        &__input {
+            width: 355px;
+            height: 45px;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            padding: 16px 18px;
+        }
+
+        &__button {
+            width: 118px;
+            height: 35px;
+            font-size: 11px;
+            line-height: 1.2;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #4a4a4a;
+            padding: 12px 10px;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+        }
+
+        &__button:hover {
+            border: 1px solid $colorPink;
+            cursor: pointer;
+            color: $colorPink;
+        }
+
+        &__button_total {
+            width: 100%;
+            height: 50px;
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: $colortWite;
+            background-color: $colorPink;
+            padding: 12px 42px;
+        }
+
+        &__sub {
+            display: flex;
+            justify-content: space-between;
+            width: 102px;
+        }
+
+        // шаблон подчеркивания
+        &__line {
+            background-color: #e2e2e2;
+            height: 1px;
+            width: 100%;
+            margin-top: 22px;
+            margin-bottom: 17px;
+            box-sizing: border-box;
+        }
+
+        &__sub-total {
+            font-size: 11px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: #4a4a4a;
+        }
+
+        &__grand-total {
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: $colorMainText;
+        }
+
+        &__grand-total_pink {
+            color: $colorPink;
+        }
+
+        &_grand {
+            width: 165px;
+            margin-top: 14px;
+        }
+    }
+}
+
+// страница product все товары и фильтры
+.category-product {
+    padding-top: 60px;
+    padding-bottom: 110px;
+
+    display: flex;
+    gap: 50px;
+}
+
+// блок с каталогом
+.category {
+    &__summary {
+        width: 243px;
+        padding-bottom: 18px;
+        display: flex;
+        justify-content: space-between;
+
+        line-height: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        border-bottom: 1px solid #ebebeb;
+        border-left: 5px solid $colorPink;
+        color: #6f6e6e;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 22px;
+        padding-left: 12px;
+
+        line-height: 33px;
+        color: #6f6e6e;
+    }
+
+    &__list[open] .category__summary {
+        color: $colorPink;
+        cursor: pointer;
+    }
+}
+
+.category__list:not(:last-child) {
+    content: "";
+    padding-bottom: 18px;
+}
+
+// блок с фильтрами и товарами
+.product {
+    display: flex;
+    flex-direction: column;
+
+    &_type a {
+        line-height: 26px;
+        color: #6f6e6e;
+    }
+
+    &_type-list {
+        list-style: none;
+    }
+
+    &_type-item:not(:last-child)::after {
+        content: "|";
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    &__filter {
+        display: flex;
+        gap: 50px;
+        padding-bottom: 42px;
+    }
+
+    &_title {
+        line-height: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #6f6e6e;
+    }
+
+    &__lable {
+        line-height: 20px;
+        text-transform: uppercase;
+        color: #6f6e6e;
+    }
+
+    .product-trending {
+        width: 178px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .product-size {
+        width: 235px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .product-price {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    &__input {
+        display: flex;
+        column-gap: 30px;
+        flex-wrap: wrap;
+        row-gap: 13px;
+    }
+
+    input[type="range"] {
+        width: 262px;
+    }
+
+    &__lable {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+
+        line-height: 20px;
+        text-transform: uppercase;
+        color: #6f6e6e;
+    }
+
+    &__cost {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 10px;
+    }
+
+    // блок с сортировкой
+    &__sort {
+        width: 846px;
+        height: 50px;
+        background-color: #f3f3f3;
+        display: flex;
+        align-items: center;
+        margin-bottom: 48px;
+    }
+
+    &__title {
+        background-color: #ffffff;
+        border: 1px solid #ebebeb;
+        margin-left: 10px;
+        padding: 8px 13px;
+    }
+
+    &__select {
+        padding: 8px 8px 8px 13px;
+        border: 1px solid #ebebeb;
+        text-transform: capitalize;
+    }
+
+    &__select:focus {
+        border: 1px solid $colorPink;
+    }
+
+    // каталог карточек
+    &_cards {
+        display: grid;
+        grid-template-columns: repeat(3, 261px);
+        column-gap: 32px;
+        row-gap: 39px;
+    }
+
+    // кнопка и пагинация
+    &__button-all {
+        padding-top: 64px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__link_button-all {
+        display: flex;
+        align-items: center;
+        width: 150px;
+        height: 44px;
+        background-color: #ffffff;
+        color: $colorPink;
+        border: 1px solid $colorPink;
+        border-radius: 3px;
+        padding: 13px 45px;
+    }
+
+    &__link_button-all:hover {
+        background-color: $colorPink;
+        color: $colortWite;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+
+        padding: 8px;
+        background-color: #ffffff;
+        border: 1px solid #ebebeb;
+        border-radius: 3px;
+    }
+
+    &__pagination {
+        display: flex;
+        list-style: none;
+        gap: 18px;
+    }
+
+    &__pagination_link {
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 700;
+        color: #c4c4c4;
+    }
+
+    &__pagination_link-active {
+        color: $colorPink;
+    }
+}
+
+// Блок с центральным фото
+.hero {
+    background-image: url(../img/main-photo.png);
+    background-color: $bgColorMain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 665px;
+}
+
+// текст на главном экране
+.hero-text {
+    display: flex;
+    padding-top: 224px;
+    height: 100%;
+
+    &__head {
+        font-size: 60px;
+        line-height: 1.2;
+        font-weight: 900;
+        letter-spacing: 0.025em;
+        color: $colorMainText;
+        margin: 0;
+    }
+
+    &_midle {
+        font-size: 40px;
+    }
+
+    &_red {
+        color: $colorPink;
+    }
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__span {
+        border: 8px solid $colorPink;
+        margin-right: 12px;
+        height: 97px;
+        margin-top: 15px;
+    }
+}
+
+// Блок предложения и скидки
+.offers {
+    padding-top: 98px;
+    padding-bottom: 98px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 21px;
+
+    & > div:nth-child(4) {
+        grid-row: 2 / 4;
+    }
+
+    & > div:nth-child(1) {
+        grid-row: 1 / 3;
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        transition: transform 0.5s ease-in;
+    }
+
+    &__text {
+        padding: 16px 18px;
+        background-color: $colortWite;
+        top: 26px;
+        left: 0;
+
+        position: absolute;
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 900;
+        letter-spacing: 0.025em;
+        color: $colorMainText;
+    }
+
+    &__item:hover {
+        transform: translateY(-1%);
+    }
+
+    &__text_title {
+        font-size: 30px;
+        color: $colorPink;
+    }
+}
+
+// Блок продукты
+.products {
+    display: flex;
+    flex-direction: column;
+    gap: 59px;
+    padding-bottom: 113px;
+
+    // заголовок блока продукты
+    .products-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        &__head {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 0.025em;
+            color: $colorMainText;
+        }
+
+        &__text {
+            letter-spacing: 0.025em;
+            color: $colorSubtitle;
+        }
+    }
+}
+
+// блок карточек, общее положение на странице
+.products-items {
+    display: grid;
+    grid-template-columns: repeat(4, 261px);
+    column-gap: 32px;
+    row-gap: 39px;
+}
+
+// стили карточки
+.products-item {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+
+    // блок текста под фото с ценой
+    &__text {
+        padding-top: 19px;
+    }
+
+    &__head {
+        padding-bottom: 19px;
+
+        font-size: 13px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: $colorMainText;
+    }
+
+    &__price {
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    // кнопка для добавления в корзину
+    &__card {
+        position: absolute;
+        top: 98px;
+        width: 100%;
+
+        display: none;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 8px;
+        padding: 8px 15px 8px 8px;
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid #ffffff;
+        color: $colortWite;
+        pointer-events: all;
+        transition: transform 0.5s ease-in-out;
+        top: 15px;
+    }
+
+    &__link:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px 0 rgba(235, 230, 230, 0.967);
+    }
+}
+
+.products-item:hover {
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.products-item:hover .products-item__img-card {
+    filter: brightness(30%);
+    transition: all 0.4s ease-in-out;
+}
+
+.products-item:hover .products-item__card {
+    display: flex;
+}
+
+// Кнопка Все продукты
+.products-button {
+    display: flex;
+    justify-content: center;
+
+    &__all {
+        border: 1px solid $colorPink;
+        background-color: $colorPink;
+        padding: 20px 24px;
+
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.025em;
+        color: $colortWite;
+    }
+}
+
+// Блок опции, корневой
+.options {
+    padding-bottom: 98px;
+
+    &__conteiner {
+        height: 529px;
+        gap: 36px;
+        background-color: $bgColorSecond;
+
+        display: flex;
+    }
+}
+
+// текст надо фото слева
+.option-img {
+    position: relative;
+
+    &__text {
+        font-size: 54px;
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: 0.025em;
+        color: $colortWite;
+    }
+
+    &_pink {
+        color: $colorPink;
+    }
+
+    &_small {
+        font-size: 32px;
+    }
+}
+
+.option-text {
+    position: absolute;
+    top: 146px;
+    left: 39px;
+}
+
+// правый блок Опции
+.option {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &__item {
+        display: flex;
+        gap: 33px;
+    }
+
+    &__header {
+        display: flex;
+        gap: 17px;
+        flex-direction: column;
+        width: 220px;
+    }
+}
+
+// оформление текста блока Опции
+.option-item {
+    &__head {
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: 0.025em;
+        color: $colorOption;
+    }
+
+    &__title {
+        line-height: 24px;
+        font-weight: 300;
+        letter-spacing: 0.025em;
+        color: $colorOption;
+    }
+}
+
+// CSS для блока options страницы product
+.change {
+    padding-bottom: 0;
+    background-color: $bgColorSecond;
+
+    &_options-conteiner {
+        justify-content: center;
+        height: 341px;
+    }
+
+    &_option {
+        align-items: center;
+        flex-direction: row;
+        gap: 81px;
+    }
+
+    &_item {
+        gap: 21px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &_header {
+        width: 310px;
+        align-items: center;
+    }
+}
+
+/* блок subscrybe */
+.subscrybe {
+    background-image: url(../img/subs.png);
+    background-color: rgba(244, 244, 244, 0.7);
+    background-blend-mode: overlay;
+    background-size: cover;
+    height: 440px;
+
+    display: flex;
+    align-items: center;
+    gap: 165px;
+}
+
+.subscrybe-comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 19px;
+    }
+
+    &__paragraf {
+        color: $bgColorSecond;
+        font-size: 16px;
+        font-style: italic;
+        width: 390px;
+    }
+
+    &__sign {
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 300;
+        color: $bgColorSecond;
+    }
+
+    &__sign_font {
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 700;
+        letter-spacing: 0.025em;
+        color: $colorPink;
+    }
+
+    &__pag {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__span {
+        width: 38px;
+        height: 4px;
+        background-color: #d6d6d6;
+    }
+
+    &__span_pink {
+        background-color: $colorPink;
+    }
+}
+
+.subscrybe-form__text {
+    color: $bgColorSecond;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.subscrybe-form__paragraf {
+    color: $bgColorSecond;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.forms {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.forms input {
+    padding: 16px 22px 16px 20px;
+    color: $bgColorSecond;
+
+    outline: none;
+    border: none;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: #e1e1e1;
+}
+
+.forms button {
+    color: $colortWite;
+    text-align: center;
+
+    padding: 16px 22px;
+    background-color: $colorPink;
+    border: none;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: all 0.5s ease-in;
+}
+
+.forms:hover button {
+    transform: scale(1.1);
+}
+
+// Блок о компании
+.brand-container {
+    padding-top: 109px;
+    padding-bottom: 89px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 64px;
+
+    &__about {
+        display: flex;
+        flex-direction: column;
+        gap: 29px;
+    }
+
+    &__texts {
+        width: 430px;
+
+        line-height: 24px;
+        font-weight: 300;
+        letter-spacing: 0.025em;
+        color: $colorAboutText;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    &__title {
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 700;
+        letter-spacing: 0.025em;
+        color: $colorPink;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+    }
+
+    &__link {
+        text-decoration: none;
+
+        font-size: 16px;
+        line-height: 59px;
+        font-weight: 400;
+        letter-spacing: 0.025em;
+        color: $colorAboutText;
+    }
+
+    &__link_lh {
+        line-height: 42px;
+    }
+}
+
+/* блок footer */
+.footer {
+    min-height: 79px;
+    background-color: $borderColorSearch;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-copy {
+    color: $colorFooterCopy;
+    font-size: 16px;
+}
+
+.social {
+    display: flex;
+    gap: 7px;
+}
+
+.social-item {
+    width: 32px;
+    height: 32px;
+    background-color: $colortWite;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-item svg path {
+    fill: #b2b2b2;
+}
+
+/* режим наведения на кнопки соцсетей */
+.social-item:hover {
+    background-color: $colorPink;
+}
+
+.social-item:hover svg path {
+    fill: $colortWite;
+}
+
+.none {
+    display: none;
+}
